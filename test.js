@@ -8,17 +8,27 @@ types.forEach(type => {
   })
 });
 
-const buttonEl = document.querySelector('button');
-const rangeEl = document.querySelector('#volume');
+let playing = false;
 
-rangeEl.addEventListener('change', () => {
-  let vol = rangeEl.valueAsNumber;
+const buttonEl = document.querySelector('button');
+const volumeEl = document.querySelector('#volume');
+const frequencyEl = document.querySelector('#frequency');
+
+volumeEl.addEventListener('change', () => {
+  let vol = volumeEl.valueAsNumber;
   console.log(vol);
   osc.set({
     volume: vol
   });
+});
+
+frequencyEl.addEventListener('change', () => {
+  let freq = frequencyEl.valueAsNumber;
+  console.log(freq);
+  osc.set({
+    frequency: freq
+  })
 })
-let playing = false;
 
 const osc = new Tone.Oscillator({
   type: 'sine',
