@@ -12,8 +12,11 @@ const buttonEl = document.querySelector('button');
 const rangeEl = document.querySelector('#volume');
 
 rangeEl.addEventListener('change', () => {
-  console.log(rangeEl.valueAsNumber);
-  
+  let vol = rangeEl.valueAsNumber;
+  console.log(vol);
+  osc.set({
+    volume: vol
+  });
 })
 let playing = false;
 
